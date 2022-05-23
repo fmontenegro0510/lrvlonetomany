@@ -17,6 +17,9 @@
                                 <label>Category Name</label>
                                 <input type="text" name="name" class="form-control" placeholder="Category Name" required>
                             </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
                         </form>
                     </div>
                 </div>

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 /*** importo el modelo categoria */
-
 use App\Models\Category as Category;
+use Illuminate\Http\Request;
+
 
 class CategoryController extends Controller
 {
@@ -22,19 +23,12 @@ class CategoryController extends Controller
     public function store(Request $request){
         /*** creo una nueva categoria */
        
-        Category::create()
+        Category::create([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+        ]);
 
-
-       
-       
-        // $category = new Category();
-        // /*** asigno los valores a la categoria */
-        // $category->name = request('name');
-        // $category->description = request('description');
-        // /*** guardo la categoria */
-        // $category->save();
-        // /*** redirecciono al dashboard */
-        // return redirect()->route('dashboard');
+        return redirect('admin/category')->with('message', 'Category added successfully');
     }
 
 
