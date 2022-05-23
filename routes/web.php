@@ -25,6 +25,7 @@ Route::get('/dashboard', function () {
 Route::prefix('admin')->group( function(){
     Route::controller(App\Http\Controllers\Admin\CategoryController::class)->group(function(){
         Route::get('category', 'index');
+        Route::get('category/create', 'create');
     });
 });
 
