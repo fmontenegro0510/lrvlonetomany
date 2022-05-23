@@ -11,8 +11,11 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     public function index(){
-        /*** retorno la vista principal de la pagina web */
-        return view('admin.category.index');
+
+        /** Obtengo todas las categorias */
+        $categories = Category::all();
+        /*** retorno la vista principal de la pagina web y le paso la coleccion de categorias */
+        return view('admin.category.index', compact('categories'));
     }
     
     public function create(){
@@ -22,12 +25,10 @@ class CategoryController extends Controller
 
     public function store(Request $request){
         /*** creo una nueva categoria */
-       
         Category::create([
             'name' => $request->name,
             'slug' => Str::slug($request->name),
         ]);
-
         return redirect('admin/category')->with('message', 'Category added successfully');
     }
 

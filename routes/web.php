@@ -28,6 +28,11 @@ Route::prefix('admin')->group( function(){
         Route::get('category/create', 'create');
         Route::post('category', 'store');
     });
+    Route::controller(App\Http\Controllers\ProductController::class)->group(function(){
+        Route::get('products', 'index');
+        Route::get('products/create', 'create');
+        Route::post('products', 'store');
+    });
 });
 
 require __DIR__.'/auth.php';

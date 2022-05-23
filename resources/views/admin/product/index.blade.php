@@ -10,33 +10,39 @@
                 @endif
                 <div class="card">
                     <div class="card-header">
-                        <h3>Categories</h3>
+                        <h3>Products</h3>
                         <hr>
-                        <h4>Category Details</h4>
-                        <a href="{{ url('admin/category/create') }}" class="btn btn-primary float-end">Add Categoria</a>
+                        <h4>Product Details</h4>
+                        <a href="{{ url('admin/products/create') }}" class="btn btn-primary float-end">Add Product</a>
                     </div>
                     <div class="card-body">
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th>Category</th>
                                         <th>Name</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($categories as $category)
+                                    @foreach ($products as $product)
                                         <tr>
-                                            <td>{{ $category->id }}</td>
-                                            <td>{{ $category->name }}</td>
-                                            <td>
-                                                {{-- <a href="{{ url('admin/category/'.$category->id.'/edit') }}" class="btn btn-primary">Edit</a>
+                                            <td>{{ $product->id }}</td>
+                                            <td>{{ $product->category->name }}</td>
+                                            <td>{{ $product->name }}</td>
+
+
+                                            {{-- <td>{{ $category->id }}</td>
+                                            <td>{{ $category->name }}</td> --}}
+                                             {{-- <td>
+                                               <a href="{{ url('admin/category/'.$category->id.'/edit') }}" class="btn btn-primary">Edit</a>
                                                 <form action="{{ url('admin/category/'.$category->id) }}" method="POST" style="display: inline;">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>
-                                                </form> --}}
-                                            </td>
+                                                </form> 
+                                            </td>--}}
                                         </tr>
                                     @endforeach
                                 </tbody>
