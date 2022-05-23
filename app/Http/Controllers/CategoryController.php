@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 /*** importo el modelo categoria */
-use App\Category;
+
+use App\Models\Category as Category;
 
 class CategoryController extends Controller
 {
@@ -19,25 +20,23 @@ class CategoryController extends Controller
     }
 
     public function store(Request $request){
-        /*** valido los datos que me llegan del formulario */
-        $request->validate([
-            'name' => 'required|unique:categories|max:255',
-            'slug' => 'required|unique:categories|max:255',
-        ]);
+        /*** creo una nueva categoria */
+       
+        Category::create()
 
 
-        $category = new Category;
-        $category->name = $request->name;
-        $category->slug = $request->slug;
-        $category->save();
-
-        return redirect()->route('category.index')->with('success', 'Category created successfully');
+       
+       
+        // $category = new Category();
+        // /*** asigno los valores a la categoria */
+        // $category->name = request('name');
+        // $category->description = request('description');
+        // /*** guardo la categoria */
+        // $category->save();
+        // /*** redirecciono al dashboard */
+        // return redirect()->route('dashboard');
     }
 
-    public function edit($id){
-        $category = Category::find($id);
-        return view('admin.category.edit', compact('category'));
-    }
 
 
 
