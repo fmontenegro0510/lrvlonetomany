@@ -32,6 +32,13 @@ class CategoryController extends Controller
         return redirect('admin/category')->with('message', 'Category added successfully');
     }
 
+    public function destroy(int $category_id){
+        /*** elimino la categoria */
+        $category = Category::findOrFail($category_id);
+        $category->delete();
+        return redirect('admin/category')->with('message', 'Category deleted and all products successfully');
+    }
+
 
 
 

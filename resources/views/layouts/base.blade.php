@@ -19,6 +19,14 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body>
+
+        <div class="row">
+            <div class="align-center">
+                <a href="{{ url('admin/products') }}" class="btn btn-primary float-end">Products</a>
+                <a href="{{ url('admin/category') }}" class="btn btn-primary float-end">Categories</a>
+            </div>
+        </div>
+
         <div class="font-sans text-gray-900 antialiased">
             @yield('content')
         </div>

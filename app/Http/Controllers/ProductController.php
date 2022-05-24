@@ -46,13 +46,13 @@ class ProductController extends Controller
         return view('admin.product.edit', compact('product', 'categories'));
     }
 
-    public function update(Request $request, $product_id){
+    public function update(Request $request, int $product_id){
 
         // $product = Category::findOrFail($request->category_id)->products()->where('id', $product_id)->first();
         // $product->name = $request->name;
         // $product->slug = Str::slug($request->name);
         // $product->price = $request->price;
-        // $product->update();      
+        // $product->update();          
 
         $category = Category::findOrFail($request->category_id);
         $category->products()->where('id', $product_id)->update([

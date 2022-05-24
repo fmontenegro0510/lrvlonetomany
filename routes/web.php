@@ -27,6 +27,8 @@ Route::prefix('admin')->group( function(){
         Route::get('category', 'index');
         Route::get('category/create', 'create');
         Route::post('category', 'store');
+        Route::get('category/{category_id}/delete', 'destroy');
+
     });
     Route::controller(App\Http\Controllers\ProductController::class)->group(function(){
         Route::get('products', 'index');
