@@ -33,7 +33,7 @@ Route::prefix('admin')->group( function(){
         Route::get('products/create', 'create');
         Route::post('products', 'store');
         Route::get('products/{product}/edit', 'edit');
-
+        Route::put('products/{product}', 'update');
     });
 });
 

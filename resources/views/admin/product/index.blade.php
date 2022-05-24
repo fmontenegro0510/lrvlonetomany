@@ -39,20 +39,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>
-                                                </form>                                                 --}}
-
-
-
-                                            {{-- <td>{{ $category->id }}</td>
-                                            <td>{{ $category->name }}</td> --}}
-                                             {{-- <td>
-                                               <a href="{{ url('admin/category/'.$category->id.'/edit') }}" class="btn btn-primary">Edit</a>
-                                                <form action="{{ url('admin/category/'.$category->id) }}" method="POST" style="display: inline;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                                </form> 
-                                            </td>--}}
+                                                </form> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>
