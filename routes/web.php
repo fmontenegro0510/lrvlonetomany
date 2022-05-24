@@ -32,6 +32,8 @@ Route::prefix('admin')->group( function(){
         Route::get('products', 'index');
         Route::get('products/create', 'create');
         Route::post('products', 'store');
+        Route::get('products/{product}/edit', 'edit');
+
     });
 });
 

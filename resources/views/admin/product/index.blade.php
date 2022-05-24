@@ -22,6 +22,7 @@
                                         <th>ID</th>
                                         <th>Category</th>
                                         <th>Name</th>
+                                        <th>Price</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -31,6 +32,15 @@
                                             <td>{{ $product->id }}</td>
                                             <td>{{ $product->category->name }}</td>
                                             <td>{{ $product->name }}</td>
+                                            <td>{{ $product->price }}</td>
+                                            <td>
+                                                <a href="{{ url('admin/products/'.$product->id.'/edit') }}" class="btn btn-primary">Edit</a>
+                                                {{-- <form action="{{ url('admin/products/'.$product->id) }}" method="POST" class="d-inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>                                                 --}}
+
 
 
                                             {{-- <td>{{ $category->id }}</td>

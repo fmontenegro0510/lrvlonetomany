@@ -23,12 +23,26 @@ class ProductController extends Controller
 
         $category = Category::findOrFail($request->category_id);
 
-        $category->products()->create([
-            'name' => $request->name,
-            'slug' => Str::slug($request->slug),
-            'price' => $request->price,
-        ]);
+        $product = new Product;
+        $product->name = $request->name;
+        $product->slug = Str::slug($request->name);
+        $product->price = $request->price;
+
+        $category->products()->save($product);
+
+        // $product->category()->associate($category);
+        // $category->products()->create([
+        //     'name' => $request->name,
+        //     'slug' => Str::slug($request->slug),
+        //     'price' => $request->price,
+        // ]);
 
         return redirect('admin/products')->with('message', 'Product added successfully');
+    }
+
+    public function edit($product){
+        $product = Product::findOrFail($product);
+        $categories = Category::all();
+        return view('admin.product.edit', compact('product', 'categories'));
     }
 }
